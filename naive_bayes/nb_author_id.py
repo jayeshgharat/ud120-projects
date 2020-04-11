@@ -32,11 +32,22 @@ from sklearn.naive_bayes import GaussianNB
 ### create classifier
 clf = GaussianNB()
 
+# time to train and test our algorithms.
+t0 = time()
+
 ### fit the classifier on the training features and labels
 clf.fit(features_train, labels_train)
-    
+
+## time to train and test our algorithms.
+print "training time:", round(time()-t0, 3), "s"
+
+t0 = time()
+
 #submitAccuracyained classifier to predict labels for the test features
 pred = clf.predict(features_test)
+
+## time to train and test our algorithms.
+print "Prediction time:", round(time()-t0, 3), "s"
 
 from sklearn.metrics import accuracy_score
 print accuracy_score(pred, labels_test)
